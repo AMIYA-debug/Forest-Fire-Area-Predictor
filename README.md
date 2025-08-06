@@ -38,9 +38,8 @@ The model provides predictions for the **area affected by forest fires** in hect
 git clone https://github.com/AMIYA-debug/Algerian-Forest-Fire-Predictor.git
 cd Algerian-Forest-Fire-Predictor
 ```
-# 🔥 Algerian Forest Fire Prediction App
 
-This project is a **machine learning-powered web application** that predicts the possibility of a forest fire in Algeria using environmental data. It is trained on real data and built using **Flask, HTML/CSS**, and **Python ML libraries**. This project allows users to upload or input environmental features and get a real-time prediction using a trained model.
+I used Flask as the backend framework along with HTML and CSS to build a functional and responsive web application interface. This integration allows users to interact with the model through a clean and simple web form. The input data is passed from the webpage to the Flask backend, where the trained machine learning model processes it and returns the predicted forest fire risk. This setup provides an end-to-end solution from model training to real-time prediction on a user-friendly web platform.
 
 ---
 

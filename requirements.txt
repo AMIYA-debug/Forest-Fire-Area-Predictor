@@ -1,0 +1,5 @@
+ipykernel
+Flask
+numpy 
+pandas
+scikit-learn

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forest Fire Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 50px;
+        }
+
+        .form-section, .result-section {
+            flex: 1;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .form-section {
+            border-right: 1px solid #333;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ff6600;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            background-color: #1a1a1a;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 4px;
+        }
+
+        .submit-btn {
+            margin-top: 25px;
+            padding: 10px 25px;
+            font-size: 16px;
+            background-color: #ff6600;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #e65c00;
+        }
+
+        .result-section {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .result {
+            font-size: 24px;
+            color: orange;
+            font-weight: bold;
+        }
+
+        .note {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1>Enter Forest Parameters</h1>
+            <form action="/predictdata" method="post">
+                <label for="Temperature">Temperature</label>
+                <input type="text" name="Temperature" required>
+
+                <label for="RH">Relative Humidity</label>
+                <input type="text" name="RH" required>
+
+                <label for="Ws">Wind Speed</label>
+                <input type="text" name="Ws" required>
+
+                <label for="Rain">Rain</label>
+                <input type="text" name="Rain" required>
+
+                <label for="FFMC">FFMC Index</label>
+                <input type="text" name="FFMC" required>
+
+                <label for="DMC">DMC Index</label>
+                <input type="text" name="DMC" required>
+
+                <label for="ISI">ISI Index</label>
+                <input type="text" name="ISI" required>
+
+                <label for="Classes">Class (0 = No Fire, 1 = Fire)</label>
+                <input type="text" name="Classes" required>
+
+                <label for="Region">Region (1 = Bejaia, 2 = Sidi-Bel Abbes)</label>
+                <input type="text" name="Region" required>
+
+                <button type="submit" class="submit-btn">Predict</button>
+            </form>
+        </div>
+
+        <div class="result-section">
+            {% if result %}
+                <div class="result">
+                    Predicted Fire Area: {{ result }} hectares
+                </div>
+                <div class="note">
+                    (Note: This is an estimated value from a trained ML model.)
+                </div>
+            {% else %}
+                <div class="result">
+                    Prediction will appear here after submission.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
